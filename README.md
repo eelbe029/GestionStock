@@ -25,7 +25,9 @@
 Quantité est un attribut qui sera calcule dynamiquement prenant en compte le nombre d’articles sorti du stock et d’articles présent actuellement dans le stock
 
 **Schéma relation-entité de la base qui sera utilisée:**
+
 <a href="#"><img src="https://i.ibb.co/bJjN5sP/Capture-d-cran-2024-05-21-121511.png" alt="Schema Relactionnel"></a>
+
 ## **Fonctionnalité Principales:**
 
 - Fenêtre d’entrée :
