@@ -210,17 +210,33 @@
             </li>
         </ul>
         <hr>
+
         <div class="dropdown">
+
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://static.vecteezy.com/system/resources/previews/007/409/979/original/people-icon-design-avatar-icon-person-icons-people-icons-are-set-in-trendy-flat-style-user-icon-set-vector.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>{{Auth::user()->name}}</strong>
+                @guest
+                    @if (Route::has('home'))
+                        <strong>Login</strong>
+                    @endif
+                    @if (Route::has('register'))
+                        <strong>Register</strong>
+                    @endif
+                    @else
+                    <strong>{{Auth::user()->name}}</strong>
+                @endguest
+
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="#">New project...</a></li>
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick=" event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a></li>
             </ul>
         </div>
     </div>
@@ -234,6 +250,5 @@
 
     @yield('content')
         </main>
-
-</body>
+    </body>
 </html>
