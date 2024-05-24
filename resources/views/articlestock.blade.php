@@ -18,13 +18,40 @@
             <div class="card-header">DataTable :</div>
 
             <div class="card-body">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                {{ __('You are logged in!') }}
+                <table class="table table-bordered table-hover" id="tableArticles">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Marque</th>
+                        <th>Model</th>
+                        <th>Type</th>
+                    </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+    <script>
+    const el1 = document.getElementById('el1')
+    const el3 = document.getElementById('el3')
+    el1.classList.remove('active')
+    el1.classList.add('text-white')
+    el3.classList.remove('text-white')
+    el3.classList.add('active')
+    </script>
+    <script>
+        $(function() {
+            $('#tableArticles').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ url('articledata') }}",
+                columns: [
+                    { data: 'ID', name: 'ID' },
+                    { data: 'marque', name: 'marque' },
+                    { data: 'model', name: 'model'},
+                    { data: 'type', name: 'type' }
+                ]
+            });
+        });
+    </script>
 @endsection

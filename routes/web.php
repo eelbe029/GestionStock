@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GestionEmp;
 
@@ -28,3 +29,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Routes de la page articles en stock
 Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHome');
+Route::get('articledata',[GestionEmp::class,'articledata']);
