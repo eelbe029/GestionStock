@@ -89,6 +89,12 @@
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
         }
+        .custom-btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            line-height: 1.25;
+            border-radius: 0.2rem;
+        }
     </style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -179,34 +185,69 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li>
-                <a href="#" class="nav-link active">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                    Dashboard
-                </a>
+                    @if (Route::has('home'))
+                        <a href="#" class="nav-link active">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                            Dashboard
+                        </a>
+                @endif
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                    Etat du stock
-                </a>
+                @if (Route::has('etat'))
+                    <a href="#" class="nav-link active">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                        Stock
+                    </a>
+                @else
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                        Stock
+                    </a>
+                @endif
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#bi-clipboard-check"/></svg>
-                    Articles en stock
-                </a>
+                @if(Route::has('articlestock'))
+                    <a href="/articlestock" class="nav-link active">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#bi-clipboard-check"/></svg>
+                        Articles en stock
+                    </a>
+                @else
+                    <a href="/articlestock" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#bi-clipboard-check"/></svg>
+                        Articles en stock
+                    </a>
+                @endif
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white" aria-current="page">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                    Articles sorti du stock
-                </a>
+                @if(Route::has('articlesorti'))
+                    <a href="#" class="nav-link active" aria-current="page">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                        Articles sorti du stock
+                    </a>
+                @else
+                    <a href="#" class="nav-link text-white" aria-current="page">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                        Articles sorti du stock
+                    </a>
+                @endif
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                    Lancer une commande
-                </a>
+                @if(Route::has('commande'))
+                    <a href="#" class="nav-link active">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                        Lancer une commande
+                    </a>
+                @else
+                    <a href="#" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                        Lancer une commande
+                    </a>
+                @endif
             </li>
         </ul>
         <hr>
@@ -243,8 +284,6 @@
     <div class="b-example-divider b-example-vr"></div>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="sidebars.js"></script>
-
-
 
 
 
