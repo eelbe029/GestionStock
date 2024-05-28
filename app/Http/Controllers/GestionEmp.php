@@ -11,16 +11,19 @@ use Yajra\DataTables\DataTables;
 
 class GestionEmp extends Controller
 {
+    //Page stock general et stock detaille
     public function stockhome(){
         return view('stock');
     }
+    public function generalStockView(): JsonResponse
+    {
+        $collection = Type::all();
+        return DataTables::of($collection)->make(true);
+    }
+
+    //Page articles en stock
     public function articlesHome(){
         return view('articlestock');
-    }
-    public function generalView(): JsonResponse
-    {
-       $collection = Type::all();
-       return DataTables::of($collection)->make(true);
     }
     public function articledata(): JsonResponse
     {

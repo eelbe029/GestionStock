@@ -6,13 +6,12 @@ $(function() {
     $('#tableArticles').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "articledata",
+        ajax: "generalstockview",
         columns: [
-            { data: 'ID', name: 'ID' },
-            { data: 'marque', name: 'marque' },
-            { data: 'model', name: 'model'},
-            { data: 'type', name: 'type' },
-            { data: 'actions', name: 'actions'}
+            { data: 'id', name: 'id' },
+            { data: 'name', name: 'name' },
+            { data: 'QteDisponible', name: 'QteDisponible' },
+            { data: 'QteSortante', name: 'QteSortante' }
         ]
     });
 });
