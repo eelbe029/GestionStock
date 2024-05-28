@@ -192,13 +192,13 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li>
-                        <a href="/home" class="nav-link active" id="el1">
+                        <a href="/home" class="nav-link text-white" id="el1">
                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                             Dashboard
                         </a>
             </li>
             <li>
-                    <a href="#" class="nav-link text-white" id="el2">
+                    <a href="/stock" class="nav-link text-white" id="el2">
                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                         Stock
                     </a>
