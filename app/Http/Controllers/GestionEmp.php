@@ -12,27 +12,52 @@ use Yajra\DataTables\DataTables;
 class GestionEmp extends Controller
 {
     //Page stock general et stock detaille
-    public function stockhome(){
+    public function stockhome()
+    {
         return view('stock');
     }
+    public function stockSecondary()
+    {
+        return view('stockdetails');
+    }
+
     public function generalStockView(): JsonResponse
     {
         $collection = Type::all();
         return DataTables::of($collection)->make(true);
     }
 
+    public function detailedStockView(): JsonResponse
+    {
+        $collection = DB::select('SELECT
+    types.name AS \'type\',
+    articles.marque,
+    articles.model,
+    COUNT(*) AS \'Qte\'
+FROM
+    articles
+JOIN
+    types ON articles.typeID = types.id
+GROUP BY
+    types.name, articles.marque, articles.model;
+');
+        return DataTables::of($collection)->make(true);
+    }
+
     //Page articles en stock
-    public function articlesHome(){
+    public function articlesHome()
+    {
         return view('articlestock');
     }
+
     public function articledata(): JsonResponse
     {
         $collection = DB::select('SELECT articles.id AS \'ID\',marque,model,types.name AS \'type\' FROM articles,types WHERE etat = \'enstock\' AND types.id = articles.typeId ');
 
         return
             DataTables::of($collection)
-                ->addColumn('actions',function($collection){
-                return '<a href="#" class="btn btn-sm btn-primary">Assigner a un employe</a>';
+                ->addColumn('actions', function ($collection) {
+                    return '<a href="#" class="btn btn-sm btn-primary">Assigner a un employe</a>';
                 })
                 ->rawColumns(['actions'])
                 ->make();

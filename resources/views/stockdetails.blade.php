@@ -5,8 +5,8 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h4 class="h2">Stock</h4>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <a href="/stockDetailed" type="button" class="btn btn-outline-primary d-flex align-items-center gap-1" id="Modifier table">
-                    Vue detaillee
+                <a href = "/stock" type="button" class="btn btn-outline-primary d-flex align-items-center gap-1" id="Modifier table">
+                    Vue Generale
                 </a>
             </div>
         </div>
@@ -17,15 +17,15 @@
                 <table class="table table-bordered table-hover" id="tableArticles">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Nom</th>
-                        <th>Quantite en stock</th>
-                        <th>Quantite sortie du stock</th>
+                        <th>Type</th>
+                        <th>Marque</th>
+                        <th>Model</th>
+                        <th>Quantite Totale</th>
                     </tr>
                     </thead>
                 </table>
             </div>
         </div>
     </div>
-    <script src="JS/stock.js"></script>
+    <script src="JS/stockdetails.js"></script>
 @endsection

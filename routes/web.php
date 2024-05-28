@@ -29,8 +29,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Routes de la page stock
 Route::get('/stock',[GestionEmp::class,'stockhome'])->name('stockhome');
+Route::get('/stockDetailed',[GestionEmp::class,'stockSecondary'])->name('stockdetailed');
 Route::get('generalstockview',[GestionEmp::class,'generalStockView']);
+Route::get('detailedstockview',[GestionEmp::class,'detailedStockView']);
 
 //Routes de la page articles en stock
 Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHome');
 Route::get('articledata',[GestionEmp::class,'articledata']);
+
