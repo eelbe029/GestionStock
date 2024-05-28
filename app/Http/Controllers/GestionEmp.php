@@ -17,7 +17,7 @@ class GestionEmp extends Controller
     public function articlesHome(){
         return view('articlestock');
     }
-    public function GeneralView() JsonResponse
+    public function generalView(): JsonResponse
     {
        $collection = Type::all();
        return DataTables::of($collection)->make(true);
