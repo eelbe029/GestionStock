@@ -15,7 +15,7 @@ $(function() {
             { data: 'actions', name: 'actions'}
         ]
     });
-});
+})
 $(document).on('click', '.assign', function() {
     var id = $(this).data('id');
     $.ajax({

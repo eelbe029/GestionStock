@@ -57,7 +57,7 @@ GROUP BY
         return
             DataTables::of($collection)
                 ->addColumn('actions', function ($row) {
-                    return '<button  type="button" class=" assign btn btn-primary" value="'.$row->ID.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
+                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->ID.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();
