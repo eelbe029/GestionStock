@@ -16,3 +16,18 @@ $(function() {
         ]
     });
 });
+$(document).on('click', '.assign', function() {
+    var id = $(this).data('id');
+    $.ajax({
+        url: "articlemodal/"+id,
+        method: "GET",
+        success: function(response){
+            console.log('test')
+            $('#injectmodal').html(response)
+        },
+        error: function(xhr){
+            console.log('tjjjjjj');
+            console.error(xhr.responseText)
+        }
+    });
+})

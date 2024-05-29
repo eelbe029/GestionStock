@@ -56,11 +56,16 @@ GROUP BY
 
         return
             DataTables::of($collection)
-                ->addColumn('actions', function ($collection) {
-                    return '<a href="#" class="btn btn-sm btn-primary">Assigner a un employe</a>';
+                ->addColumn('actions', function ($row) {
+                    return '<button  type="button" class=" assign btn btn-primary" value="'.$row->ID.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();
+    }
+
+    public function assignmodal($id){
+        $article = Article::findOrFail($id);
+        return view('modalAssigner',compact('article'));
     }
 
 }
