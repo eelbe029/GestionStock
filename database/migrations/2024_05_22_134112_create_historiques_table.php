@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->date('DateAssignement');
             $table->date('DateDissociation');
+            $table->boolean('active');
             $table->unsignedBigInteger('articleId');
             $table->unsignedBigInteger('personnelId');
 
