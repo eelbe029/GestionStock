@@ -5,7 +5,7 @@
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content">
-                <form method="post" action="">
+                <form method="GET" action="{{route('articleassign')}}">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Assigner a un employe</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -14,13 +14,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Assigner</button>
+                        <button type="submit" id="subform" class="btn btn-primary">Assigner</button>
                     </div>
                 </form>
             </div>
         </div>
-
-
     </div>
     <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

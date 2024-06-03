@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Type;
+use App\Models\Personnel;
+use App\Models\Historique;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use JetBrains\PhpStorm\NoReturn;
 use Yajra\DataTables\DataTables;
 
 class GestionEmp extends Controller
@@ -66,6 +69,25 @@ GROUP BY
     public function assignmodal($id){
         $article = Article::findOrFail($id);
         return view('modalAssigner',compact('article'));
+    }
+
+    #[NoReturn] public function assign(Request $request){
+        $personnel = Personnel::where('nom', $request->nom)
+                                ->where('emplacement', $request->emplacement)
+                                ->count();
+        $article = Article::findOrFail($request->articleID);
+        if ($personnel == 1) {
+            $personnel = Personnel::where('nom', $request->nom)
+                        ->where('emplacement', $request->emplacement)
+                        ->get();
+
+        } else {
+            $personnel = new Personnel();
+            $personnel->nom = $request->nom;
+            $personnel->emplacement = $request->emplacement;
+            $personnel->save();
+            dd('Personnel created: ' . $personnel);
+        }
     }
 
 }

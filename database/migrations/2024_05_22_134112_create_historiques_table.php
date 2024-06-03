@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. Schema pour les historiques d'assignation mais aussi pour
+     * Reperesenter les assignations actuelles
+     * active est un attribut booleen permettant de savoir si une assignation est en vigueur
      */
     public function up(): void
     {

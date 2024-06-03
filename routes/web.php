@@ -37,4 +37,5 @@ Route::get('detailedstockview',[GestionEmp::class,'detailedStockView']);
 Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHome');
 Route::get('articledata',[GestionEmp::class,'articledata']);
 Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']);
+Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign');
 
