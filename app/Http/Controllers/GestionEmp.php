@@ -75,19 +75,47 @@ GROUP BY
         $personnel = Personnel::where('nom', $request->nom)
                                 ->where('emplacement', $request->emplacement)
                                 ->count();
+
+        //Passe l'etat de l'article de enstock a assignee
         $article = Article::findOrFail($request->articleID);
+        $article->etat = 'assigned';
+        $article->save();
+
+        //Verifie si le personnel entree existe ou non
         if ($personnel == 1) {
+
+            //Recupere les donnees du personnel a qui on associe
             $personnel = Personnel::where('nom', $request->nom)
                         ->where('emplacement', $request->emplacement)
                         ->get();
 
+            //Creer l'historique liee a l'association
+            $historique = new Historique();
+            $historique->DateAssignement = now();
+            $historique->articleId = $article->id;
+            $historique->personnelId = $personnel[0]->id;
+            $historique->DateDissociation = now();
+            $historique->active = true;
+            $historique->save();
+
         } else {
+            //Creer un nouveau personnel s'il n'existait pas
             $personnel = new Personnel();
             $personnel->nom = $request->nom;
             $personnel->emplacement = $request->emplacement;
             $personnel->save();
-            dd('Personnel created: ' . $personnel);
+
+            //Creer l'historique liee a l'association
+            $historique = new Historique();
+            $historique->DateAssignement = now();
+            $historique->articleId = $article->id;
+            $historique->personnelId = $personnel->id;
+            $historique->DateDissociation = now();
+            $historique->active = true;
+            $historique->save();
         }
+        return view('articlestock');
     }
+
 
 }
