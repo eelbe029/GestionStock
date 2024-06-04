@@ -116,10 +116,17 @@ GROUP BY
         }
         return view('articlestock');
     }
-    public function autocompletename(Request $request)
+    public function autocompletename(Request $request): JsonResponse
     {
-        $query = $request->get('query');
-        $data = Personnel::where('emplacement', 'LIKE', "%{$query}%")->get(); // Adjust the query to your needs
+        $data = [];
+
+        if($request->filled('q')){
+            $data = Personnel::select("nom", "id")
+                ->where('nom', 'LIKE', '%'. $request->get('q'). '%')
+                ->take(10)
+                ->get();
+        }
+
         return response()->json($data);
     }
 

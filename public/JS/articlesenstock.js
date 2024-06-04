@@ -33,15 +33,23 @@ $(document).on('click', '.assign', function() {
         }
     });
 });
-var path = "/autocomplete"
-
-$('#search').typeahead({
-    source: function (query, process) {
-        return $.get(path, {
-            query: query
-        }, function (data) {
-            return process(data);
-        });
+$('#search').select2({
+    placeholder: 'Select an user',
+    ajax: {
+        url: "autocomplete",
+        dataType: 'json',
+        delay: 250,
+        processResults: function (data) {
+            return {
+                results:  $.map(data, function (item) {
+                    return {
+                        text: item.name,
+                        id: item.id
+                    }
+                })
+            };
+        },
+        cache: true
     }
 });
 
