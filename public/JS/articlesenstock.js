@@ -1,3 +1,5 @@
+
+
 const el3 = document.getElementById('el3')
 el3.classList.remove('text-white')
 el3.classList.add('active')
@@ -15,7 +17,7 @@ $(function() {
             { data: 'actions', name: 'actions'}
         ]
     });
-})
+});
 $(document).on('click', '.assign', function() {
     var id = $(this).data('id');
     $.ajax({
@@ -30,5 +32,17 @@ $(document).on('click', '.assign', function() {
             console.error(xhr.responseText)
         }
     });
-})
+});
+var path = "/autocomplete"
+
+$('#search').typeahead({
+    source: function (query, process) {
+        return $.get(path, {
+            query: query
+        }, function (data) {
+            return process(data);
+        });
+    }
+});
+
 

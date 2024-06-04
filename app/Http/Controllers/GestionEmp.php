@@ -116,6 +116,11 @@ GROUP BY
         }
         return view('articlestock');
     }
-
+    public function autocompletename(Request $request)
+    {
+        $query = $request->get('query');
+        $data = Personnel::where('emplacement', 'LIKE', "%{$query}%")->get(); // Adjust the query to your needs
+        return response()->json($data);
+    }
 
 }

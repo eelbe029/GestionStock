@@ -38,4 +38,5 @@ Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHo
 Route::get('articledata',[GestionEmp::class,'articledata']);
 Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']);
 Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign');
+Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename');
 
