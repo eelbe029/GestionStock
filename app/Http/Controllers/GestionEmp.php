@@ -133,7 +133,10 @@ GROUP BY
     //Page saisie de nouvel article
     public function saisieHome(){
         $collection = Type::all();
-        return view('stockentrant',compact('collection'));
+        $marques = Article::select("Marque")
+            ->distinct()
+            ->get();
+        return view('stockentrant',compact('collection','marques'));
     }
 
 }

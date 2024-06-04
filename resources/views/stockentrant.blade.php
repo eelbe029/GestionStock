@@ -15,16 +15,20 @@
                 </div>
                 <form>
                     <div class="card-body ">
-
                         <select class="form-control">
                             @foreach($collection as $type)
                                 <option>{{$type->name}}</option>
                             @endforeach
                         </select>
-                            <input class="form-control mt-2" placeholder="Nombre ">
+                        <select class="form-control mt-2">
+                            @foreach($marques as $marque)
+                                <option>{{$marque->Marque}}</option>
+                            @endforeach
+                        </select>
+                        <input class="form-control mt-2" placeholder="Nombre">
                     </div>
                     <div class="card-footer bg-light">
-                        <button type="submit" class=" btn btn-primary">Enregistrer</button>
+                        <button type="submit" class=" btn btn-primary">Continuer</button>
                     </div>
                 </form>
             </div>
