@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
-        "jquery-autocomplete": "^1.2.8"
+        "jquery-autocomplete": "^1.2.8",
+        "select2": "^4.1.0-rc.0"
     }
 }

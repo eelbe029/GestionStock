@@ -28,15 +28,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Routes de la page stock
-Route::get('/stock',[GestionEmp::class,'stockhome'])->name('stockhome');
-Route::get('/stockDetailed',[GestionEmp::class,'stockSecondary'])->name('stockdetailed');
-Route::get('generalstockview',[GestionEmp::class,'generalStockView']);
-Route::get('detailedstockview',[GestionEmp::class,'detailedStockView']);
+Route::get('/stock',[GestionEmp::class,'stockhome'])->name('stockhome'); //Page acceuil
+Route::get('/stockDetailed',[GestionEmp::class,'stockSecondary'])->name('stockdetailed'); //Page detaillee
+Route::get('generalstockview',[GestionEmp::class,'generalStockView']); //Donnee datatable acceuil
+Route::get('detailedstockview',[GestionEmp::class,'detailedStockView']);//Donnee datatable detaillee
 
 //Routes de la page articles en stock
-Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHome');
-Route::get('articledata',[GestionEmp::class,'articledata']);
-Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']);
-Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign');
-Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename');
+Route::get('/articlestock',[GestionEmp::class,'articlesHome'])->name('articlesHome'); //Page acceuil
+Route::get('articledata',[GestionEmp::class,'articledata']); //Donnee Datatable
+Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']); //Modal du boutton assigner
+Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign'); //Soumission info assign
+Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename'); //Autocomplete emplacement
 

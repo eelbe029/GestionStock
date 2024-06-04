@@ -36,7 +36,7 @@ $(document).on('click', '.assign', function() {
 $('#search').select2({
     placeholder: 'Select an user',
     ajax: {
-        url: "autocomplete",
+        url: "/autocomplete",
         dataType: 'json',
         delay: 250,
         processResults: function (data) {
