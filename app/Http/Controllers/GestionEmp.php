@@ -130,4 +130,10 @@ GROUP BY
         return response()->json($data);
     }
 
+    //Page saisie de nouvel article
+    public function saisieHome(){
+        $collection = Type::all();
+        return view('stockentrant',compact('collection'));
+    }
+
 }

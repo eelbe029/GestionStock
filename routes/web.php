@@ -40,3 +40,5 @@ Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']); //Modal du b
 Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign'); //Soumission info assign
 Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename'); //Autocomplete emplacement
 
+//Routes de la page saisie de stock entrant
+Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil

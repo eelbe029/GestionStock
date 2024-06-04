@@ -209,9 +209,9 @@
                     </a>
             </li>
             <li>
-                    <a href="#" class="nav-link text-white" id="el5">
+                    <a href="/saisie" class="nav-link text-white" id="el5">
                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                        Lancer une commande
+                        Saisie de stock
                     </a>
             </li>
         </ul>
