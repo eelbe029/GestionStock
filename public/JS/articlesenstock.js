@@ -33,24 +33,5 @@ $(document).on('click', '.assign', function() {
         }
     });
 });
-$('#search').select2({
-    placeholder: 'Select an user',
-    ajax: {
-        url: "/autocomplete",
-        dataType: 'json',
-        delay: 250,
-        processResults: function (data) {
-            return {
-                results:  $.map(data, function (item) {
-                    return {
-                        text: item.name,
-                        id: item.id
-                    }
-                })
-            };
-        },
-        cache: true
-    }
-});
 
 
