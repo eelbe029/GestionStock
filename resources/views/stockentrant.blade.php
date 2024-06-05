@@ -21,7 +21,7 @@
                                     <option>{{$type->name}}</option>
                                 @endforeach
                             </select>
-                            <button type="button" class="btn btn-outline-primary btn-sm">Nouveau type</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm">Nouveau type</button>
                         </div>
                         <div class="input-group mb-3">
                             <select class="form-control mt-2 js-example-basic-single">
@@ -29,7 +29,7 @@
                                     <option>{{$marque->Marque}}</option>
                                 @endforeach
                             </select>
-                            <button type="button" class="btn btn-outline-primary btn-sm">Nouvelle marque</button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm">Nouvelle marque</button>
                         </div>
                         <input class="form-control mt-2" placeholder="Nombre">
                     </div>
