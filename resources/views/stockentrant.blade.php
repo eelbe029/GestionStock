@@ -15,16 +15,22 @@
                 </div>
                 <form>
                     <div class="card-body ">
-                        <select class="form-control">
-                            @foreach($collection as $type)
-                                <option>{{$type->name}}</option>
-                            @endforeach
-                        </select>
-                        <select class="form-control mt-2">
-                            @foreach($marques as $marque)
-                                <option>{{$marque->Marque}}</option>
-                            @endforeach
-                        </select>
+                        <div class="input-group mb-3">
+                            <select class="form-control js-example-basic-single">
+                                @foreach($collection as $type)
+                                    <option>{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" class="btn btn-outline-primary btn-sm">Nouveau type</button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <select class="form-control mt-2 js-example-basic-single">
+                                @foreach($marques as $marque)
+                                    <option>{{$marque->Marque}}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" class="btn btn-outline-primary btn-sm">Nouvelle marque</button>
+                        </div>
                         <input class="form-control mt-2" placeholder="Nombre">
                     </div>
                     <div class="card-footer bg-light">
