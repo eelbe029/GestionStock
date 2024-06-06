@@ -6,3 +6,18 @@ $(document).ready(function() {
         height: 200
     });
 });
+
+$(document).on('click', '.assign', function() {
+    $.ajax({
+        url: "modalType",
+        method: "GET",
+        success: function(response){
+            console.log('test')
+            $('#injectmodal').html(response)
+        },
+        error: function(xhr){
+            console.log('tjjjjjj');
+            console.error(xhr.responseText)
+        }
+    });
+});

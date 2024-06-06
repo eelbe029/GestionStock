@@ -138,5 +138,9 @@ GROUP BY
             ->get();
         return view('stockentrant',compact('collection','marques'));
     }
+    public function modalType(){
+        return view('modalType');
+    }
+
 
 }

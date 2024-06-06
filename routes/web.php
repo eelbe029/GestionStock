@@ -42,3 +42,4 @@ Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autoco
 
 //Routes de la page saisie de stock entrant
 Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil
+Route::get('/modalType',[GestionEmp::class,'modalType'])->name('modalType'); //Injection modal Ajouter type
