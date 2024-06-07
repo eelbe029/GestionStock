@@ -36,7 +36,7 @@
                                     <option>{{$marque->Marque}}</option>
                                 @endforeach
                             </select>
-                            <button type="button" class="btn btn-outline-success ms-1 btn-sm">+</button>
+                            <button type="button" class="assign2 btn btn-outline-success ms-1 btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>
                         </div>
                         <input class="form-control mt-3" placeholder="Model">
                         <input class="form-control mt-3" placeholder="Nombre">

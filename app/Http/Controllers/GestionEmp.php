@@ -141,6 +141,17 @@ GROUP BY
     public function modalType(){
         return view('modalType');
     }
+    public function modalMarque(){
+        return view('modalMarque');
+    }
+    public function nouveauType(Request $request){
+        $type = new Type();
+        $type->name = $request->name;
+        $type->QteDisponible = 0;
+        $type->QteSortante = 0;
+        $type->save();
+        return redirect('/saisie');
+    }
 
 
 }

@@ -21,3 +21,17 @@ $(document).on('click', '.assign', function() {
         }
     });
 });
+$(document).on('click', '.assign2', function() {
+    $.ajax({
+        url: "modalMarque",
+        method: "GET",
+        success: function(response){
+            console.log('test')
+            $('#injectmodal').html(response)
+        },
+        error: function(xhr){
+            console.log('tjjjjjj');
+            console.error(xhr.responseText)
+        }
+    });
+});
