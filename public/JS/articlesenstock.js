@@ -18,6 +18,7 @@ $(function() {
         ]
     });
 });
+
 $(document).on('click', '.assign', function() {
     var id = $(this).data('id');
     $.ajax({
