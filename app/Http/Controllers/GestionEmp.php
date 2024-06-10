@@ -67,15 +67,19 @@ class GestionEmp extends Controller
                     return $article->type->name;
                 })
                 ->addColumn('actions', function ($row) {
-                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->ID.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
+                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();
     }
 
     public function assignmodal($id){
+
         $article = Article::findOrFail($id);
-        return view('modalAssigner',compact('article'));
+        $employees = Personnel::all();
+
+        return view('modalAssigner',compact('article','employees'));
+
     }
 
     #[NoReturn] public function assign(Request $request){
