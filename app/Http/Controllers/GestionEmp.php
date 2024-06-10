@@ -32,19 +32,18 @@ class GestionEmp extends Controller
 
     public function detailedStockView(): JsonResponse
     {
-        $collection = DB::select('SELECT
-    types.name AS \'type\',
-    articles.marque,
-    articles.model,
-    COUNT(*) AS \'Qte\'
-FROM
-    articles
-JOIN
-    types ON articles.typeID = types.id
-GROUP BY
-    types.name, articles.marque, articles.model;
-');
-        return DataTables::of($collection)->make(true);
+        $collection = Article::select('Model','typeId','marqueId', \DB::raw('COUNT(*) as Qte'))
+                        ->groupBy('Model','typeId','marqueId')
+                        ->get();
+
+        return DataTables::of($collection)
+            ->editColumn("marque",function($article){
+                return $article->marque->name;
+            })
+            ->editColumn("type",function($article){
+                return $article->type->name;
+            })
+            ->make();
     }
 
     //Page articles en stock
@@ -55,10 +54,18 @@ GROUP BY
 
     public function articledata(): JsonResponse
     {
-        $collection = DB::select('SELECT articles.id AS \'ID\',marque,model,types.name AS \'type\' FROM articles,types WHERE etat = \'enstock\' AND types.id = articles.typeId ');
+        $collection = Article::select('id','marqueId','Model','typeId')
+                                ->where('etat','enstock')
+                                ->get();
 
         return
             DataTables::of($collection)
+                ->editColumn("marque",function($article){
+                    return $article->marque->name;
+                })
+                ->editColumn("type",function($article){
+                    return $article->type->name;
+                })
                 ->addColumn('actions', function ($row) {
                     return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->ID.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
                 })

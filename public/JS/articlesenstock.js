@@ -10,9 +10,9 @@ $(function() {
         serverSide: true,
         ajax: "articledata",
         columns: [
-            { data: 'ID', name: 'ID' },
+            { data: 'id', name: 'id' },
             { data: 'marque', name: 'marque' },
-            { data: 'model', name: 'model'},
+            { data: 'Model', name: 'Model'},
             { data: 'type', name: 'type' },
             { data: 'actions', name: 'actions'}
         ]

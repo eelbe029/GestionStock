@@ -10,7 +10,7 @@ $(function() {
         columns: [
             { data: 'type', name: 'type' },
             { data: 'marque', name: 'marque' },
-            { data: 'model', name: 'model'},
+            { data: 'Model', name: 'Model'},
             { data: 'Qte', name: 'Qte'}
         ]
     });
