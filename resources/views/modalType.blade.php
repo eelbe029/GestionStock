@@ -6,7 +6,7 @@
     </div>
     <div class="modal-body" >
         Saisissez le type a ajouter :
-        <input class="form-control">
+        <input class="form-control" name="name">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
