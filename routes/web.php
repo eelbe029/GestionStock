@@ -44,3 +44,5 @@ Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autoco
 Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil
 Route::get('/modalType',[GestionEmp::class,'modalType'])->name('modalType'); //Injection modal Ajouter type
 Route::get('/modalMarque',[GestionEmp::class,'modalMarque'])->name('modalMarque');//Injectioon modal Ajouter type
+Route::get('/nouveauType',[GestionEmp::class,'nouveauType'])->name('nouveauType'); //Saisie d'un nouveau type
+Route::get('/nouvelleMarque',[GestionEmp::class,'nouvelleMarque'])->name('nouvelleMarque'); //Saisie d'une  nouvelle marque

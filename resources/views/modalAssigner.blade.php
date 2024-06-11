@@ -24,6 +24,7 @@
         </div>
         <input type="hidden" name="articleID" value="{{$article->id}}">
     </div>
+
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2({

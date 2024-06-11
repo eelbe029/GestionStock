@@ -1,5 +1,5 @@
 
-<form method="GET" action="{{route('articleassign')}}">
+<form method="GET" action="{{route('nouveauType')}}">
     <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajout d'un nouveau type</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

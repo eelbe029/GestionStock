@@ -143,23 +143,34 @@ class GestionEmp extends Controller
     }
 
     //Page saisie de nouvel article
+        //Redirection page principle de saisie article
     public function saisieHome(){
         $collection = Type::all();
         $marques = Marque::all();
         return view('stockentrant',compact('collection','marques'));
     }
+        //Injection modal nouveau type
     public function modalType(){
         return view('modalType');
     }
+        //Injection modal nouvelle marque
     public function modalMarque(){
         return view('modalMarque');
     }
+        //Ajout nouveau type
     public function nouveauType(Request $request){
         $type = new Type();
         $type->name = $request->name;
         $type->QteDisponible = 0;
         $type->QteSortante = 0;
         $type->save();
+        return redirect('/saisie');
+    }
+        //Ajout nouvelle marque
+    public function nouvelleMarque(Request $request){
+        $marque = new Marque();
+        $marque->name = $request->name;
+        $marque->save();
         return redirect('/saisie');
     }
 
