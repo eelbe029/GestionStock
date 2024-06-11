@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Type;
 use App\Models\Personnel;
 use App\Models\Historique;
+use App\Models\Marque;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -144,9 +145,7 @@ class GestionEmp extends Controller
     //Page saisie de nouvel article
     public function saisieHome(){
         $collection = Type::all();
-        $marques = Article::select("Marque")
-            ->distinct()
-            ->get();
+        $marques = Marque::all();
         return view('stockentrant',compact('collection','marques'));
     }
     public function modalType(){

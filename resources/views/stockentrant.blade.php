@@ -33,7 +33,7 @@
                         <div class="d-flex mt-3">
                             <select class="form-control mt-3 js-example-basic-single">
                                 @foreach($marques as $marque)
-                                    <option>{{$marque->Marque}}</option>
+                                    <option>{{$marque->name}}</option>
                                 @endforeach
                             </select>
                             <button type="button" class="assign2 btn btn-outline-success ms-1 btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>
