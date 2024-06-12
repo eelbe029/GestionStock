@@ -189,7 +189,15 @@ class GestionEmp extends Controller
         $historique = Historique::findOrFail($id);
         $article = $historique->article;
 
-        //
+        //Effectue la dissociation
+        $article->etat = 'enstock';
+        $historique->active = false;
+
+        //Sauvegarde les objets
+        $historique->save();
+        $article->save();
+
+        return 'ok';
 
     }
 

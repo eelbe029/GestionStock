@@ -21,7 +21,7 @@ $(document).on('click', '.delete', function() {
     var HistoricId = $(this).data('id');
     if (confirm('Êtes-vous sûr de vouloir dissocier?')) {
         $.ajax({
-            url: "supprimer/"+employeeId,
+            url: "dissocier/"+HistoricId,
             method: "GET",
             succes: function(response){
                 $('#table').DataTable().destroy();

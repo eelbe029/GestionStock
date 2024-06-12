@@ -41,8 +41,9 @@ Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign')
 Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename'); //Autocomplete emplacement
 
 //Routes de la page articles sortis du stock
-Route::get('/articlesorti',[GestionEmp::class,'articleSortiHome'])->name('articleSortiHome');
-Route::get('/articlesortidata',[GestionEmp::class,'articleSortiData']);
+Route::get('/articlesorti',[GestionEmp::class,'articleSortiHome'])->name('articleSortiHome'); //Page acceuil
+Route::get('/articlesortidata',[GestionEmp::class,'articleSortiData']); //Donnee Datatable
+Route::get('/dissocier/{id}',[GestionEmp::class,'dissocier'])->name('dissocier'); //Boutton dissocier
 
 //Routes de la page saisie de stock entrant
 Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil
