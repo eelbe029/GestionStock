@@ -174,5 +174,10 @@ class GestionEmp extends Controller
         return redirect('/saisie');
     }
 
+    //Fonctions de la page articles sorti de stock
+    public function articleSortiHome(){
+        return view('articlesorti');
+    }
+
 
 }

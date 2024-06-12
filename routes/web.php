@@ -40,9 +40,14 @@ Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']); //Modal du b
 Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign'); //Soumission info assign
 Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename'); //Autocomplete emplacement
 
+//Routes de la page articles sortis du stock
+Route::get('/articlesorti',[GestionEmp::class,'articleSortiHome'])->name('articleSortiHome');
+
 //Routes de la page saisie de stock entrant
 Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil
 Route::get('/modalType',[GestionEmp::class,'modalType'])->name('modalType'); //Injection modal Ajouter type
 Route::get('/modalMarque',[GestionEmp::class,'modalMarque'])->name('modalMarque');//Injectioon modal Ajouter type
 Route::get('/nouveauType',[GestionEmp::class,'nouveauType'])->name('nouveauType'); //Saisie d'un nouveau type
 Route::get('/nouvelleMarque',[GestionEmp::class,'nouvelleMarque'])->name('nouvelleMarque'); //Saisie d'une  nouvelle marque
+
+
