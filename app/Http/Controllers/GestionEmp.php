@@ -161,7 +161,6 @@ class GestionEmp extends Controller
         $collection = Article::select('id','marqueId','Model','typeId')
                                 ->where('etat','sorti')
                                 ->get();
-
         return
             DataTables::of($collection)
                 ->editColumn("marque",function($article){
@@ -171,13 +170,16 @@ class GestionEmp extends Controller
                     return $article->type->name;
                 })
                 ->editColumn("emplacement",function($article){
-                    return $article->historique->where('active','1')->personnel->emplacement;
+                    $historique = $article->historique->where('active','1');
+                    return $historique[0]->personnel->emplacement;
                 })
                 ->editColumn("nom",function($article){
-                    return $article->historique->where('active','1')->marque->nom;
+                    $historique = $article->historique->where('active','1');
+                    return $historique[0]->personnel->nom;
                 })
                 ->addColumn('actions', function ($row) {
-                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
+                    $historique = $row->historique->where('active');
+                    return '<button  type="button" class=" assign btn btn-danger" data-id="'.$historique[0]->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Dissocier</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();

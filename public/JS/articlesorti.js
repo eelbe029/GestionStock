@@ -11,6 +11,8 @@ $(function() {
             { data: 'marque', name: 'marque' },
             { data: 'Model', name: 'Model'},
             { data: 'type', name: 'type' },
+            { data: 'emplacement', name: 'emplacement'},
+            { data: 'nom', name: 'nom' },
             { data: 'actions', name: 'actions'}
         ]
     });
