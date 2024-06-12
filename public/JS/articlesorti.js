@@ -24,12 +24,12 @@ $(document).on('click', '.delete', function() {
             url: "dissocier/"+HistoricId,
             method: "GET",
             succes: function(response){
-                $('#table').DataTable().destroy();
+                $('#tableArticles').DataTable().destroy();
             },
             error: function(xhr){
                 console.error(xhr.responseText)
             }
         });
-        $('#table').DataTable().ajax.reload();
+        $('#tableArticles').DataTable().ajax.reload();
     }
 });

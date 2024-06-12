@@ -90,6 +90,12 @@ class GestionEmp extends Controller
         $article->etat = 'sorti';
         $article->save();
 
+        //Decremente la qte disponible
+        $type = $article->type;
+        $type->QteDisponible--;
+        $type->QteSortante++;
+        $type->save();
+
         //Recupere les donnees du personnel a qui on associe
         $personnel = Personnel::where('nom', $request->nom)
                     ->where('emplacement', $request->emplacement)
@@ -171,15 +177,22 @@ class GestionEmp extends Controller
                 })
                 ->editColumn("emplacement",function($article){
                     $historique = $article->historique->where('active','1');
-                    return $historique[0]->personnel->emplacement;
+                    foreach($historique as $hist){
+                        return $hist->personnel->emplacement;
+                    }
                 })
                 ->editColumn("nom",function($article){
                     $historique = $article->historique->where('active','1');
-                    return $historique[0]->personnel->nom;
+                    foreach($historique as $hist){
+                        return $hist->personnel->nom;
+                    }
                 })
                 ->addColumn('actions', function ($row) {
                     $historique = $row->historique->where('active');
-                    return '<button  type="button" class="delete btn btn-danger" data-id="'.$historique[0]->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Dissocier</button>';
+                    foreach($historique as $hist){
+                        return '<button  type="button" class="delete btn btn-danger" data-id="'.$hist->id.'">Dissocier</button>';
+                    }
+
                 })
                 ->rawColumns(['actions'])
                 ->make();
@@ -193,9 +206,16 @@ class GestionEmp extends Controller
         $article->etat = 'enstock';
         $historique->active = false;
 
+        //Met a jour la qte du type
+        $type = $article->type;
+        $type->QteSortante--;
+        $type->QteDisponible++;
+
         //Sauvegarde les objets
-        $historique->save();
         $article->save();
+        $historique->save();
+        $type->save();
+
 
         return 'ok';
 
