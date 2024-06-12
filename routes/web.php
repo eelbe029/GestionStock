@@ -42,6 +42,7 @@ Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autoco
 
 //Routes de la page articles sortis du stock
 Route::get('/articlesorti',[GestionEmp::class,'articleSortiHome'])->name('articleSortiHome');
+Route::get('/articlesortidata',[GestionEmp::class,'articleSortiData']);
 
 //Routes de la page saisie de stock entrant
 Route::get('/saisie',[GestionEmp::class,'saisieHome'])->name('saisiehome'); //Page acceuil

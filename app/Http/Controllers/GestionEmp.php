@@ -178,6 +178,23 @@ class GestionEmp extends Controller
     public function articleSortiHome(){
         return view('articlesorti');
     }
+    public function articleSortiData(Request $request): JsonResponse
+    {
+        $collection = Article::select('id','marqueId','Model','typeId');
 
+        return
+            DataTables::of($collection)
+                ->editColumn("marque",function($article){
+                    return $article->marque->name;
+                })
+                ->editColumn("type",function($article){
+                    return $article->type->name;
+                })
+                ->addColumn('actions', function ($row) {
+                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
+                })
+                ->rawColumns(['actions'])
+                ->make();
+    }
 
 }
