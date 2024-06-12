@@ -205,7 +205,7 @@
                     </a>
             </li>
             <li class="nav-item">
-                    <a href="#" class="nav-link text-white" aria-current="page" id="el4">
+                    <a href="/articlesorti" class="nav-link text-white" aria-current="page" id="el4">
                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                         Articles sorti du stock
                     </a>
