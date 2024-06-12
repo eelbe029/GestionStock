@@ -105,7 +105,9 @@ class GestionEmp extends Controller
         $historique = new Historique();
         $historique->DateAssignement = now();
         $historique->articleId = $article->id;
-        $historique->personnelId = $personnel[0]->id;
+        foreach ($personnel as $person) {
+            $historique->personnelId = $person->id;
+        }
         $historique->DateDissociation = now();
         $historique->active = true;
         $historique->save();

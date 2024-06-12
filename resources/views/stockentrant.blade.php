@@ -18,7 +18,10 @@
         <div class="container d-flex">
             <div class="card text-bg-light  col me-5">
                 <div class="card-header">
-                    Article a saisir
+                    <div class="d-flex justify-content-between">
+                        <div class="mt-1"><h3>Article a saisir</h3></div>
+                        <div><button class="btn btn-outline-success">+</button></div>
+                    </div>
                 </div>
                 <form>
                     <div class="card-body ">
