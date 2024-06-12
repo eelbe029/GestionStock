@@ -17,3 +17,19 @@ $(function() {
         ]
     });
 });
+$(document).on('click', '.delete', function() {
+    var HistoricId = $(this).data('id');
+    if (confirm('Êtes-vous sûr de vouloir dissocier?')) {
+        $.ajax({
+            url: "supprimer/"+employeeId,
+            method: "GET",
+            succes: function(response){
+                $('#table').DataTable().destroy();
+            },
+            error: function(xhr){
+                console.error(xhr.responseText)
+            }
+        });
+        $('#table').DataTable().ajax.reload();
+    }
+});

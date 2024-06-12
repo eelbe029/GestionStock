@@ -179,10 +179,18 @@ class GestionEmp extends Controller
                 })
                 ->addColumn('actions', function ($row) {
                     $historique = $row->historique->where('active');
-                    return '<button  type="button" class=" assign btn btn-danger" data-id="'.$historique[0]->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Dissocier</button>';
+                    return '<button  type="button" class="delete btn btn-danger" data-id="'.$historique[0]->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Dissocier</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();
+    }
+    public function dissocier($id){
+        //Recupere les objets concerne
+        $historique = Historique::findOrFail($id);
+        $article = $historique->article;
+
+        //
+
     }
 
 }
