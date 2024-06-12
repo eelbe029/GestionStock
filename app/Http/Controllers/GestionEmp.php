@@ -171,7 +171,10 @@ class GestionEmp extends Controller
                     return $article->type->name;
                 })
                 ->editColumn("emplacement",function($article){
-                    return $article->historique->where('active','1');
+                    return $article->historique->where('active','1')->personnel->emplacement;
+                })
+                ->editColumn("nom",function($article){
+                    return $article->historique->where('active','1')->marque->nom;
                 })
                 ->addColumn('actions', function ($row) {
                     return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
