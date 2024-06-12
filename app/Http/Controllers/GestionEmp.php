@@ -97,7 +97,8 @@ class GestionEmp extends Controller
         $type->save();
 
         //Recupere les donnees du personnel a qui on associe
-        $personnel = Personnel::where('nom', $request->nom)
+        $personnel = Personnel::select('*')
+                    ->where('nom', $request->nom)
                     ->where('emplacement', $request->emplacement)
                     ->get();
 
