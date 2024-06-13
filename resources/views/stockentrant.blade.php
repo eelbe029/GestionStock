@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <div class="container d-flex">
+        <div class="container d-flex flex-column">
             <div class="card text-bg-light  col me-5">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
@@ -49,7 +49,8 @@
                     </div>
                 </form>
             </div>
-            <div id="my-timeline"></div>
+
+            <div id="my-timeline"> timeline here</div>
         </div>
 
     </div>
