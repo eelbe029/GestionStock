@@ -35,3 +35,19 @@ $(document).on('click', '.assign2', function() {
         }
     });
 });
+var myEvents = [
+    {
+    <a href="https://www.jqueryscript.net/time-clock/">date</a>: 'Q1 - 2017', content: 'Lorem ipsum dolor sit amet'},
+{
+    date: 'Q2 - 2017', content: 'Lorem ipsum dolor sit amet'
+},
+{
+    date: 'Q3 - 2017', content: 'Lorem ipsum dolor sit amet'
+},
+{
+    date: 'Q3 - 2018', content: 'Lorem ipsum dolor sit amet'
+}];
+$('#my-timeline').roadmap(myEvents,{
+    eventsPerSlide: 5// default: 6
+});
+
