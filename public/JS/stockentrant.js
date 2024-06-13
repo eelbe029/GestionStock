@@ -55,7 +55,9 @@ var myEvents = [
 ];
 
 $('#my-timeline').roadmap(myEvents,{
-    eventsPerSlide: 4,
-    orientation: 'auto'
+    eventsPerSlide: 3,
+    slide: 1,
+    prevArrow: '<button class="prev">Previous</button>',
+    nextArrow: '<button class="next">Next</button>'
 });
 
