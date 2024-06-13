@@ -49,8 +49,6 @@
                     </div>
                 </form>
             </div>
-
-            <div id="my-timeline"> timeline here</div>
         </div>
 
     </div>
