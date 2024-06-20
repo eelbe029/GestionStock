@@ -51,5 +51,6 @@ Route::get('/modalType',[GestionEmp::class,'modalType'])->name('modalType'); //I
 Route::get('/modalMarque',[GestionEmp::class,'modalMarque'])->name('modalMarque');//Injectioon modal Ajouter type
 Route::get('/nouveauType',[GestionEmp::class,'nouveauType'])->name('nouveauType'); //Saisie d'un nouveau type
 Route::get('/nouvelleMarque',[GestionEmp::class,'nouvelleMarque'])->name('nouvelleMarque'); //Saisie d'une  nouvelle marque
+Route::get('/additionEnt',[GestionEmp::class,'additionEnt']);//Injection champ d'entreer
 
 
