@@ -79,7 +79,7 @@ $(document).on('click', '.ajt', function() {
         '                            </select>\n' +
         '                            <button type="button" class="assign2 btn btn-outline-success ms-1 btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>\n' +
         '                        </div>'+
-        '<input class="form-control mt-3" placeholder="Model">\n' +
+        '<input class="form-control mt-3" placeholder="Model">\n'+
         '<input class="form-control mt-3" placeholder="Nombre">'+
         '</div>'
 })
