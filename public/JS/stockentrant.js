@@ -60,4 +60,27 @@ $('#my-timeline').roadmap(myEvents,{
     prevArrow: '<button class="prev">Previous</button>',
     nextArrow: '<button class="next">Next</button>'
 });
+$(document).on('click', '.ajt', function() {
+    valeur = document.getElementsByClassName('ajt')[0].value
+    document.getElementById('f').innerHTML += '<div class="card-footer bg-light">' +
+        '<div class="d-flex">\n' +
+        '                            <select class="form-control js-example-basic-single">\n' +
+        '                                @foreach($collection as $type)\n' +
+        '                                    <option>{{$type->name}}</option>\n' +
+        '                                @endforeach\n' +
+        '                            </select>\n' +
+        '                            <button type="button" class="assign ms-1 btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>\n' +
+        '                        </div>' +
+        '<div class="d-flex mt-3">\n' +
+        '                            <select class="form-control mt-3 js-example-basic-single">\n' +
+        '                                @foreach($marques as $marque)\n' +
+        '                                    <option>{{$marque->name}} </option>\n' +
+        '                                @endforeach\n' +
+        '                            </select>\n' +
+        '                            <button type="button" class="assign2 btn btn-outline-success ms-1 btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button>\n' +
+        '                        </div>'+
+        '<input class="form-control mt-3" placeholder="Model">\n' +
+        '<input class="form-control mt-3" placeholder="Nombre">'+
+        '</div>'
+})
 

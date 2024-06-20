@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
                         <div class="mt-1"><h3>Article a saisir</h3></div>
-                        <div><button class="btn btn-outline-success">+</button></div>
+                        <div><button class="btn btn-outline-success ajt" value="1">+</button></div>
                     </div>
                 </div>
                 <form>
@@ -44,7 +44,9 @@
                         <input class="form-control mt-3" placeholder="Model">
                         <input class="form-control mt-3" placeholder="Nombre">
                     </div>
-                    <div class="card-footer bg-light">
+                    <div id="f">
+                    </div>
+                    <div class="card-footer bg-light submit">
                         <button type="submit" class=" btn btn-primary">Continuer</button>
                     </div>
                 </form>
