@@ -20,5 +20,5 @@
         </button>
     </div>
     <input class="form-control mt-3" name="model-{{$val}}" placeholder="Model">
-    <input class="form-control mt-3" name="Nombre-{{$val}}" placeholder="Nombre">
+    <input class="form-control mt-3" name="nombre-{{$val}}" placeholder="Nombre">
 </div>
