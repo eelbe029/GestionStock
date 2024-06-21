@@ -67,6 +67,12 @@ $(document).on('click', '.ajt', function() {
         method: "GET",
         success: function(response){
             document.getElementById('f').innerHTML += response
+            $(document).ready(function() {
+                $('.js-example-basic-single-'+valeur).select2({
+                    height: 200
+                });
+            });
+            document.getElementsByClassName('ajt')[0].value = Number(valeur) + 1
         }
     })
 })
