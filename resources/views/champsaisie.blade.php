@@ -1,6 +1,6 @@
 <div class="card-footer bg-light">
     <div class="d-flex">
-        <select class="form-control js-example-basic-single">
+        <select name="type-{{$val}}" class="form-control js-example-basic-single">
             @foreach($collection as $type)
                 <option>{{$type->name}}</option>
             @endforeach
@@ -10,7 +10,7 @@
         </button>
     </div>
     <div class="d-flex mt-3">
-        <select class="form-control mt-3 js-example-basic-single">
+        <select name ="marque-{{$val}}" class="form-control mt-3 js-example-basic-single">
             @foreach($marques as $marque)
                 <option>{{$marque->name}} </option>
             @endforeach
@@ -19,6 +19,6 @@
                 data-bs-target="#staticBackdrop">+
         </button>
     </div>
-    <input class="form-control mt-3" placeholder="Model">
-    <input class="form-control mt-3" placeholder="Nombre">
+    <input class="form-control mt-3" name="model-{{$val}}" placeholder="Model">
+    <input class="form-control mt-3" name="Nombre-{{$val}}" placeholder="Nombre">
 </div>
