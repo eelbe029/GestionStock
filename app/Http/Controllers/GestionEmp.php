@@ -136,6 +136,12 @@ class GestionEmp extends Controller
         $marques = Marque::all();
         return view('stockentrant',compact('collection','marques'));
     }
+        //Injection nouveau champ de saisie
+    public function champsaisie($val){
+        $collection = Type::all();
+        $marques = Marque::all();
+        return view('champsaisie',compact('val','collection','marques'));
+    }
         //Injection modal nouveau type
     public function modalType(){
         return view('modalType');
@@ -223,5 +229,7 @@ class GestionEmp extends Controller
         return 'ok';
 
     }
+
+
 
 }
