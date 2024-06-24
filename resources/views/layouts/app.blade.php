@@ -232,7 +232,6 @@
                     @else
                     <strong>{{Auth::user()->name}}</strong>
                 @endguest
-
             </a>
         </div>
         <button class="btn btn-outline-light mt-3" href="{{route('logout')}}" onclick=" event.preventDefault();document.getElementById('logout-form').submit();">
