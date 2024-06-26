@@ -33,27 +33,6 @@ $(document).on('click', '.assign', function() {
         }
     });
 });
-var myEvents = [
-    {
-        date: 'Q1 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q2 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q3 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q4 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    }
-];
-
-
-const modalhist = document.getElementById('userModal');
 
 $(document).on('click', '.historique', function() {
     const id = $(this).data('id');
@@ -62,31 +41,23 @@ $(document).on('click', '.historique', function() {
         method: "GET",
         success: function(response){
             let i = 0;
-            const j = 0;
-            var myEvents = response.map(function(item){
-                if (i%2 === 0){
-                    i++
-                    return {
-                        date: item.DateAssignement,
-                        content: item.personnel.nom
-                    }
-                }
-                else {
-                    i++
-                    return {
-                        date: item.DateDissociation ,
-                        content:"dissocie"
-                    }
-                }
-
-
+            myEvents = []
+            $.each(response, function(index, value){
+                myEvents.push({
+                    date: response[i].DateAssignement,
+                    content: response[i].personnel.nom
+                })
+                myEvents.push({
+                    date: response[i].DateDissociation,
+                    content: "Dissocie"
+                })
+                i++
             })
-
             $('#my-timeline').roadmap(myEvents,{
                 eventsPerSlide: 3,
                 slide: 1,
-                prevArrow: '<button class="prev btn btn-sm btn-outline-primary">Previous</button>',
-                nextArrow: '<button class="next btn btn-sm btn-outline-primary">Next</button>'
+                prevArrow: '<button class="prev btn btn-sm btn-outline-primary"> < </button>',
+                nextArrow: '<button class="next btn btn-sm btn-outline-primary"> > </button>'
             })
         }})
 })
