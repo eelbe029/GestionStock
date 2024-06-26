@@ -68,7 +68,8 @@ class GestionEmp extends Controller
                     return $article->type->name;
                 })
                 ->addColumn('actions', function ($row) {
-                    return '<button  type="button" class=" assign btn btn-primary" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>';
+                    return '<button  type="button" class=" assign btn btn-primary btn-sm" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Assigner a un employe</button>
+<button type="button" class="historique btn btn-success btn-sm" data-id="'.$row->id.'" data-bs-toggle="modal" data-bs-target="#userModal">Historique</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make();
@@ -128,6 +129,12 @@ class GestionEmp extends Controller
 
         return response()->json($data);
     }
+    public function histdata($id){
+        $historiques = Historique::with('personnel')->where('articleId',$id)->get();
+
+        return $historiques;
+    }
+
 
     //Page saisie de nouvel article
         //Redirection page principle de saisie article
@@ -217,7 +224,7 @@ class GestionEmp extends Controller
 
         //Met a jour la qte du type
         $type = $article->type;
-        $type->QteSortante--;
+        $type->QteSortante-- ;
         $type->QteDisponible++;
 
         //Sauvegarde les objets

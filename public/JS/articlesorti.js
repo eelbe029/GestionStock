@@ -23,7 +23,7 @@ $(document).on('click', '.delete', function() {
         $.ajax({
             url: "dissocier/"+HistoricId,
             method: "GET",
-            succes: function(response){
+            success: function(response){
                 $('#tableArticles').DataTable().destroy();
             },
             error: function(xhr){

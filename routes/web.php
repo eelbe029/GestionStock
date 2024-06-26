@@ -39,6 +39,7 @@ Route::get('articledata',[GestionEmp::class,'articledata']); //Donnee Datatable
 Route::get('/articlemodal/{id}',[GestionEmp::class,'assignmodal']); //Modal du boutton assigner
 Route::get('/articleassign',[GestionEmp::class,'assign'])->name('articleassign'); //Soumission info assign
 Route::get('/autocomplete',[GestionEmp::class,'autocompletename'])->name('autocompletename'); //Autocomplete emplacement
+Route::get('/historique/{id}',[GestionEmp::class,'histdata'])->name('histdata');
 
 //Routes de la page articles sortis du stock
 Route::get('/articlesorti',[GestionEmp::class,'articleSortiHome'])->name('articleSortiHome'); //Page acceuil

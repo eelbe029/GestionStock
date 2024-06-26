@@ -54,6 +54,9 @@
             width: 1.5rem;
             height: 100vh;
         }
+        #el1:hover,#el2:hover,#el3:hover,#el4:hover,#el5:hover{
+            background-color: gray;
+        }
 
         .bi {
             vertical-align: -.125em;

@@ -35,31 +35,7 @@ $(document).on('click', '.assign2', function() {
         }
     });
 });
-var myEvents = [
-    {
-        date: 'Q1 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q2 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q3 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    },
-    {
-        date: 'Q4 - 2018',
-        content: 'Lorem ipsum dolor sit amet'
-    }
-];
 
-$('#my-timeline').roadmap(myEvents,{
-    eventsPerSlide: 3,
-    slide: 1,
-    prevArrow: '<button class="prev">Previous</button>',
-    nextArrow: '<button class="next">Next</button>'
-});
 $(document).on('click', '.ajt', function() {
     valeur = document.getElementsByClassName('ajt')[0].value
     $.ajax({

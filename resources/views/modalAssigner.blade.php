@@ -6,7 +6,7 @@
         <input type="text" id="disabledTextInput" placeholder="{{$article->Model}}" class="form-control mt-2">
     </div>
 </fieldset>
-    <legend>Informations a renseinger:</legend>
+    <legend>Informations a renseigner:</legend>
     <div class="mb-3">
         <div class="mb-3">
             <select type="text" id="search" name="emplacement" placeholder="Emplacement (Service ou Agence)" class="js-example-basic-single form-control ">
