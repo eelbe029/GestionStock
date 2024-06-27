@@ -9,35 +9,35 @@
         <div class="text-bg-light mt-5 container">
             <div class="row">
                 <div class="col">
-                    <div class="card me-4 bg-primary-subtle text-white">
-                        <div class="card-header bg-primary align-content-center">
-                            <h3>Ordinateurs</h3>
-                        </div>
-                        <div class="card-footer bg-primary  pb-4">
-                            <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 100</h7>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-primary-subtle text-white">
-                        <div class="card-header bg-primary align-content-center">
+                    <div class="card me-4 bg-danger-subtle text-white">
+                        <div class="card-header bg-danger align-content-center">
                             <h3>Routeur</h3>
                         </div>
-                        <div class="card-footer bg-primary  pb-4">
+                        <div class="card-footer bg-danger  pb-4">
                             <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 70</h7>
+                            <h7 class="mt-2">Disponible : 2</h7>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card ms-4 bg-primary-subtle text-white">
-                        <div class="card-header bg-primary align-content-center">
+                    <div class="card bg-warning-subtle text-white">
+                        <div class="card-header bg-warning align-content-center">
                             <h3>Clavier</h3>
                         </div>
-                        <div class="card-footer bg-primary pb-4">
+                        <div class="card-footer bg-warning pb-4">
                             <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 50</h7>
+                            <h7 class="mt-2">Disponible : 10</h7>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card ms-4 bg-primary-success text-white">
+                        <div class="card-header bg-success align-content-center">
+                            <h3>Ordinateurs</h3>
+                        </div>
+                        <div class="card-footer bg-success  pb-4">
+                            <img style="width: 18px" src="dispo.png">
+                            <h7 class="mt-2">Disponible : 100</h7>
                         </div>
                     </div>
                 </div>
