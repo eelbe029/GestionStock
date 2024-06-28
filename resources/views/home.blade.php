@@ -46,7 +46,7 @@
         <div class="mt-5 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h4 class="h2">Etat actuel</h4>
         </div>
-        <div class="container d-flex justify-content-start">
+        <div class="card pb-5 container d-flex justify-content-start" >
                 <div class="mt-3">
                     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                 </div>
