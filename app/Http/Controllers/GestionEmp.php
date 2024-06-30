@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Commande;
 use App\Models\Type;
 use App\Models\Personnel;
 use App\Models\Historique;
@@ -15,6 +16,11 @@ use Yajra\DataTables\DataTables;
 
 class GestionEmp extends Controller
 {
+    //Page dashboard
+    public function graphdisp(){
+        $types = Type::orderBy('QteDisponible', 'desc')->get();
+        return $types;
+    }
     //Page stock general et stock detaille
     public function stockhome()
     {
@@ -173,9 +179,42 @@ class GestionEmp extends Controller
         $marque->save();
         return redirect('/saisie');
     }
+        //Ajout du stock saisie
+    public function saisieEntree(Request $request){
+        for ($i = 0; $i < sizeof($request->all())/4 ; $i++) {
+                $typename = $request->input('type'.$i);
+                $marquename = $request->input('marque'.$i);
+                $modelname = $request->input('model'.$i);
+                $nombre = $request->input('nombre'.$i);
+
+                //find the id's
+                $type = Type::where('name', $typename)->first();
+                $marque = Marque::where('name', $marquename)->first();
+
+                //Renseigne le numero de la saisie en tant que commande pour avoir un suivi
+                $commande = new Commande();
+                $commande->dateCommande = now();
+                $commande->dateLivraison = now();
+                $commande->recue = 1;
+                $commande->save();
+
+                //Enregistre les articles entree
+                for ($j = 0; $j < $nombre; $j++) {
+                    $article = new Article();
+                    $article->marqueId = $marque->id;
+                    $article->typeId = $type->id;
+                    $article->Model = $modelname;
+                    $article->Etat = 'enstock';
+                    $article->commandeId = $commande->id;
+                    $article->save();
+                }
+        }
+        return redirect('/saisie');
+    }
 
     //Fonctions de la page articles sorti de stock
-    public function articleSortiHome(){
+    public function articleSortiHome()
+    {
         return view('articlesorti');
     }
     public function articleSortiData(Request $request): JsonResponse
@@ -236,6 +275,8 @@ class GestionEmp extends Controller
         return 'ok';
 
     }
+
+
 
 
 

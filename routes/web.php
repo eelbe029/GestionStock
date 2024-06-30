@@ -25,7 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
+//Page dashboard
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('graphdisp',[GestionEmp::class,'graphdisp'])->name('graphdisp');
 
 //Routes de la page stock
 Route::get('/stock',[GestionEmp::class,'stockhome'])->name('stockhome'); //Page acceuil
@@ -53,5 +55,7 @@ Route::get('/modalMarque',[GestionEmp::class,'modalMarque'])->name('modalMarque'
 Route::get('/nouveauType',[GestionEmp::class,'nouveauType'])->name('nouveauType'); //Saisie d'un nouveau type
 Route::get('/nouvelleMarque',[GestionEmp::class,'nouvelleMarque'])->name('nouvelleMarque'); //Saisie d'une  nouvelle marque
 Route::get('/champsaisie/{val}',[GestionEmp::class,'champsaisie']);//Injection champ d'entreer
+Route::get('/saisieEntree',[GestionEmp::class,'saisieEntree'])->name('saisieEntree'); //Saisie entree
+
 
 

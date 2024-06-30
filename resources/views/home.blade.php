@@ -8,39 +8,45 @@
         </div>
         <div class="text-bg-light mt-5 container">
             <div class="row">
-                <div class="col">
-                    <div class="card me-4 bg-danger-subtle text-white">
-                        <div class="card-header bg-danger align-content-center">
-                            <h3>Routeur</h3>
+                @foreach($types as $type)
+                    @if($type->QteDisponible <= 5)
+                        <div class="col">
+                            <div class="card me-4 bg-danger-subtle text-white">
+                                <div class="card-header bg-danger align-content-center">
+                                    <h3>{{$type->name}}</h3>
+                                </div>
+                                <div class="card-footer bg-danger  pb-4">
+                                    <img style="width: 18px" src="dispo.png">
+                                    <h7 class="mt-2">Disponible : {{$type->QteDisponible}}</h7>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer bg-danger  pb-4">
-                            <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 2</h7>
+                    @elseif($type->QteDisponible < 10)
+                        <div class="col">
+                            <div class="card bg-warning-subtle text-white">
+                                <div class="card-header bg-warning align-content-center">
+                                    <h3>{{$type->name}}</h3>
+                                </div>
+                                <div class="card-footer bg-warning pb-4">
+                                    <img style="width: 18px" src="dispo.png">
+                                    <h7 class="mt-2">Disponible : {{$type->QteDisponible}}</h7>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-warning-subtle text-white">
-                        <div class="card-header bg-warning align-content-center">
-                            <h3>Clavier</h3>
+                    @else
+                        <div class="col">
+                            <div class="card ms-4 bg-primary-success text-white">
+                                <div class="card-header bg-success align-content-center">
+                                    <h3>{{$type->name}}</h3>
+                                </div>
+                                <div class="card-footer bg-success  pb-4">
+                                    <img style="width: 18px" src="dispo.png">
+                                    <h7 class="mt-2">Disponible : {{$type->QteDisponible}}</h7>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer bg-warning pb-4">
-                            <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 10</h7>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card ms-4 bg-primary-success text-white">
-                        <div class="card-header bg-success align-content-center">
-                            <h3>Ordinateurs</h3>
-                        </div>
-                        <div class="card-footer bg-success  pb-4">
-                            <img style="width: 18px" src="dispo.png">
-                            <h7 class="mt-2">Disponible : 100</h7>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
         <div class="mt-5 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
