@@ -39,9 +39,15 @@ class GestionEmp extends Controller
 
     public function detailedStockView(): JsonResponse
     {
-        $collection = Article::select('Model','typeId','marqueId', \DB::raw('COUNT(*) as Qte'))
+       /* $collection = Article::select('Model','typeId','marqueId', \DB::raw('COUNT(*) as Qte'))
                         ->groupBy('Model','typeId','marqueId')
-                        ->get();
+                        ->get();*/
+
+        $collection = Article::select('Model','typeId','marqueId')
+            ->selectRaw('COUNT(CASE WHEN Etat = "enstock" THEN 1 END) as enstock')
+            ->selectRaw('COUNT(CASE WHEN Etat = "sorti" THEN 1 END) as sorti')
+            ->groupBy('Model','typeId','marqueId')
+            ->get();
 
         return DataTables::of($collection)
             ->editColumn("marque",function($article){

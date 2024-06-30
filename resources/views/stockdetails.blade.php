@@ -20,7 +20,8 @@
                         <th>Type</th>
                         <th>Marque</th>
                         <th>Model</th>
-                        <th>Quantite Totale</th>
+                        <th>Quantite en stock</th>
+                        <th>Quantite sortie du stock</th>
                     </tr>
                     </thead>
                 </table>

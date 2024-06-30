@@ -11,7 +11,8 @@ $(function() {
             { data: 'type', name: 'type' },
             { data: 'marque', name: 'marque' },
             { data: 'Model', name: 'Model'},
-            { data: 'Qte', name: 'Qte'}
+            { data: 'enstock', name: 'enstock'},
+            { data: 'sorti', name: 'sorti'},
         ]
     });
 });
