@@ -272,6 +272,9 @@ class GestionEmp extends Controller
         $type->QteSortante-- ;
         $type->QteDisponible++;
 
+        //Historique date dissociation
+        $historique->DateDissociation = now();
+
         //Sauvegarde les objets
         $article->save();
         $historique->save();
