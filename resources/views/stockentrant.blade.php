@@ -24,7 +24,10 @@
                     </div>
                 </div>
                 <form method="GET" action="{{route('saisieEntree')}}">
-                    <div class="card-body ">
+                    <div class="card-body">
+                        <input class="form-control" placeholder="Numero de commande">
+                    </div>
+                    <div class="card-footer ">
                         <div class="d-flex">
                             <select name="type0" class="form-control js-example-basic-single">
                                 @foreach($collection as $type)

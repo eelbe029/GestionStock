@@ -31,5 +31,4 @@ window.onload = function () {
             $("#chartContainer").CanvasJSChart(options);
         }
     })
-
 }
