@@ -202,6 +202,7 @@ class GestionEmp extends Controller
                 $commande->dateCommande = now();
                 $commande->dateLivraison = now();
                 $commande->recue = 1;
+                $commande->reference = $request->reference;
                 $commande->save();
 
                 //Enregistre les articles entree

@@ -24,7 +24,7 @@
                 </div>
                 <form method="GET" action="{{route('saisieEntree')}}">
                     <div class="card-body">
-                        <input class="form-control" placeholder="Numero de commande">
+                        <input class="form-control" name="reference" placeholder="Numero de commande">
                     </div>
                     <div class="card-footer ">
                         <div class="d-flex">

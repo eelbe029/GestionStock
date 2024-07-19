@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('dateCommande');
             $table->date('dateLivraison');
             $table->boolean('recue');
+            $table->char('Reference');
         });
     }
 
